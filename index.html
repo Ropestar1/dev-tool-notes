@@ -21,12 +21,13 @@
 
     // Regular
     console.log('hello');
+    /* console.table(); you can use console.table() to have a table view of an array, object, or array of objects. */
 
     // Interpolated (not used as often b/c ES6 backticks can be used instead when variables are assigned)
     console.log('I am a %s string', '"interpolated input"');
 
     // Styled (%c goes in front of what you want to style.)
-    console.log('%c This text is going to be styled', 'font-size: 50px; background: red;');
+    console.log('%cThis text is going to be styled', 'font-size: 50px; background: red;');
 
     // warning!
     console.warn('OH NOOOOO....WARNING!');
@@ -46,14 +47,37 @@
 
 
     // clearing
+    // use console.clear() to clear the console web inspector;
 
     // Viewing DOM Elements
+    console.log(p) //from above constant
+    console.dir(p) //this gives you information on the element.
 
     // Grouping together
+    // using dogs array at the top as an example;
+    dogs.forEach((dog) => {
+      console.group(`${dog.name}`); //takes a string as an argument; string becomes the group name;
+      // other options for grouping --> console.groupCollapsed() defaults the grouping as collapsed;
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old.`);
+      console.groupEnd(`${dog.name}`); // use the same string at beginning of group method to stop grouping.
+    })
 
-    // counting
+    // counting (how many times something gets used in the app.)
+    console.count('string');
+    console.count('string');
+    console.count('string');
+    console.count('string');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data') //similar ending with same string syntax as grouping
+        console.log(data);
+      });
 
   </script>
 </body>
