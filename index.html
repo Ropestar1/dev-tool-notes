@@ -16,20 +16,34 @@
       p.style.color = '#BADA55';
       p.style.fontSize = '50px';
     }
+    // Chrome web inspector example
+    /* NOTE: to find the event/trigger for something in HTML, open inspector and find element you want to target. Right click over the element in the web inspector and select 'Break on...attribute modifications'. This just adds a debugger to the event.*/
 
     // Regular
+    console.log('hello');
 
-    // Interpolated
+    // Interpolated (not used as often b/c ES6 backticks can be used instead when variables are assigned)
+    console.log('I am a %s string', '"interpolated input"');
 
-    // Styled
+    // Styled (%c goes in front of what you want to style.)
+    console.log('%c This text is going to be styled', 'font-size: 50px; background: red;');
 
     // warning!
+    console.warn('OH NOOOOO....WARNING!');
 
     // Error :|
+    console.error('This is an ERROR MESSAGE!');
 
     // Info
+    console.info('This could be used to indicate to developers any information or other info.');
 
     // Testing
+    // NOTE: assert triggers if condition is false/not met
+    console.assert(1 === 1, 'This is wrong!');
+
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'It doesn\'t contain that class.');
+
 
     // clearing
 
